@@ -8,7 +8,7 @@ class FieldElement:
         self.prime = prime
 
     def __repr__(self):
-        return 'FieldElement_{({})}'.format(self.prime, self.num)
+        return 'FieldElement_{}({})'.format(self.prime, self.num)
 
     def __eq__(self, other):
         if other is None:

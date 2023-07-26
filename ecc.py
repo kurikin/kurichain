@@ -15,3 +15,5 @@ class FieldElement:
             return False
         return self.num == other.num and self.prime == other.prime
 
+    def __ne__(self, other):
+        return not (self == other)

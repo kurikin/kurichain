@@ -80,13 +80,27 @@ class ECCTest(unittest.TestCase):
             p = Point(x1, y1, a, b)
 
             expression = ' + '.join(['p'] * count)
-            print(expression)
             result = eval(expression)
 
             x2 = FE(x2_raw, prime)
             y2 = FE(y2_raw, prime)
             q  = Point(x2, y2, a, b)
             self.assertEqual(result, q)
+
+    def test_ex05(self):
+        prime = 223
+        a = FE(0, prime)
+        b = FE(7, prime)
+        x = FE(15, prime)
+        y = FE(86, prime)
+        p = Point(x, y, a, b)
+        inf = Point(None, None, a, b)
+        product = p
+        count = 1
+        while product != inf:
+            product += p    #type: ignore
+            count += 1
+        self.assertEqual(count, 7)
 
 if __name__ == '__main__':
     unittest.main()

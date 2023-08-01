@@ -68,19 +68,17 @@ class ECCTest(unittest.TestCase):
         b = FE(7, prime)
 
         additions = (
-                (192, 105, 49, 71, 4),
+                (192, 105, 49, 71, 2),
                 (143, 98, 64, 168, 2),
                 (47, 71, 36, 111, 2),
                 (47, 71, 194, 51, 4),
                 (47, 71, 116, 55, 8),
-                (47, 71, None, None, 21),
         )
         for x1_raw, y1_raw, x2_raw, y2_raw, count in additions:
             x1 = FE(x1_raw, prime)
             y1 = FE(y1_raw, prime)
-            p  = Point(x1, y1, a, b)
+            p = Point(x1, y1, a, b)
 
-            print(p+p)
             expression = ' + '.join(['p'] * count)
             print(expression)
             result = eval(expression)

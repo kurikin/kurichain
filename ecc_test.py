@@ -102,5 +102,17 @@ class ECCTest(unittest.TestCase):
             count += 1
         self.assertEqual(count, 7)
 
+    def test_rmul(self):
+        prime = 223
+        a = FE(0, prime)
+        b = FE(7, prime)
+        x = FE(15, prime)
+        y = FE(86, prime)
+        p = Point (x, y, a, b)
+
+        inf = Point(None, None, a, b)
+        result = 7 * p
+        self.assertEqual(result, inf)
+
 if __name__ == '__main__':
     unittest.main()

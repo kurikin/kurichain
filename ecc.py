@@ -184,7 +184,7 @@ class PrivateKey:
 
     def sign(self, z):
         k = self.deterministic_k(z)  # <1>
-        r = (k * G).x.num
+        r = (k * G).x.num   #type: ignore
         k_inv = pow(k, N - 2, N)
         s = (z + r * self.secret) * k_inv % N
         if s > N / 2:
